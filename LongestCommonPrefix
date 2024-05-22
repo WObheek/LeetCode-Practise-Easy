@@ -1,0 +1,36 @@
+# Write a function to find the longest common prefix string amongst an array of strings.
+# If there is no common prefix, return an empty string "".
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+
+        # keep the first string of list to compares
+        common_prefix = strs[0]
+
+        # loops through the list of string expect first one
+        for str in strs[1:]:
+            
+            # compares the str up to the lenght of common_prefix
+            # and common_prefix : until its not empty
+            while str[:len(common_prefix)] != common_prefix and common_prefix:
+                
+                #if not equal slice out the last character of common_prefix
+                common_prefix = common_prefix[:-1]
+            
+            # common_prefix return true if empty & return empty string
+            if not common_prefix:
+                return ""
+
+        return common_prefix
+
+/*
+# Example usage:
+print(longestCommonPrefix(["flower", "flow", "flight"]))  # Output: "fl"
+print(longestCommonPrefix(["dog", "racecar", "car"]))     # Output: ""
+print(longestCommonPrefix(["interstellar", "internet", "internal"]))  # Output: "inte"
+print(longestCommonPrefix(["single"]))  # Output: "single"
+print(longestCommonPrefix([]))  # Output: ""
+*/
+            
+             
+        
